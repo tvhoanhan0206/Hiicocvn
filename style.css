@@ -1,49 +1,122 @@
-/*==Reset CSS==*/
-* {
-    margin: 0;
-    padding: 0;
-}
-/*==Style cơ bản cho website==*/
 body {
-    font-family: sans-serif;
-    color: #333;
+	padding: 0;
+	margin: 0;
 }
-
-/*==Style cho menu===*/
-#menu ul {
-    background: url(../images/header.jpg);
-    list-style-type: none;
-    text-align: center;
+nav {
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	right: 0;
+	top: 0;
+	font-family: 'Montserrat', sans-serif;
+	padding: 0 5%;
+	height: 100px;
+	background-color: #3e65da;
 }
-
-#menu li {
-    color: #f1f1f1;
-    display: inline-block;
-    width: 120px;
-    height: 40px;
-    line-height: 40px;
-    margin-left: -5px;
+nav .logo {
+	float: left;
+	width: 40%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	font-size: 24px;
+	color: #fff;
 }
-
-#menu a {
-    text-decoration: none;
-    color: #fff;
-    display: block;
+nav .links {
+	float: right;
+	padding: 0;
+	margin: 0;
+	width: 60%;
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
-
-#menu a:hover {
-    background: #F1F1F1;
-    color: #333;
+nav .links li {
+	list-style: none;
 }
-
-/*==Dropdown Menu==*/
-#menu li {
-    position: relative;
+nav .links a {
+	display: block;
+	padding: 1em;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+}
+nav .links a:hover{
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+}
+#nav-toggle {
+	position: absolute;
+	top: -100px;
+}
+nav .icon-burger {
+	display: none;
+	position: absolute;
+	right: 5%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+nav .icon-burger .line {
+	width: 30px;
+	height: 5px;
+	background-color: #fff;
+	margin: 5px;
+	border-radius: 3px;
+	transition: all .3s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+	nav .logo {
+		float: none;
+		width: auto;
+		justify-content: center;
+	}
+	nav .links {
+		float: none;
+		position: fixed;
+		z-index: 9;
+		left: 0;
+		right: 0;
+		top: 100px;
+		bottom: 100%;
+		width: auto;
+		height: auto;
+		flex-direction: column;
+		justify-content: space-evenly;
+		background-color: rgba(0,0,0,.8);
+		overflow: hidden;
+		box-sizing: border-box;
+		transition: all .5s ease-in-out;
+	}
+	nav .links a {
+		font-size: 20px;
+	}
+	nav :checked ~ .links {
+		bottom: 0;
+	}
+	nav .icon-burger {
+		display: block;
+	}
+	nav :checked ~ .icon-burger .line:nth-child(1) {
+		transform: translateY(10px) rotate(225deg);
+	}
+	nav :checked ~ .icon-burger .line:nth-child(3) {
+		transform: translateY(-10px) rotate(-225deg);
+	}
+	nav :checked ~ .icon-burger .line:nth-child(2) {
+		opacity: 0;
+	}
+	
 }
 
 /* Phần main */
+.product-item {
+    border: 5px solid blue;
+}
 .main {
-    background: url(../images/main.png);
+    margin-top: 120px;
 }
 .main_1 {
     border: 1px;
@@ -73,9 +146,7 @@ ul.products{
     justify-content: space-between;
 }
 ul.products li{
-    flex-basis: 25%;
-    padding-left: 15px;
-    padding-right: 15px;
+    flex-basis: 100%;
     box-sizing: border-box;
     margin-bottom: 30px;
 }
@@ -96,10 +167,9 @@ ul.products li .product-top a.buy-now{
     text-decoration: none;
     text-align: center;
     display: block;
-    background-color: rgb(4, 139, 250);
-    color: #fff;
+    background-color: rgb(5, 255, 5);
+    color: #000;
     padding: 10px 0px;
-    position: absolute;
     bottom: -36px;
     width: 100%;
     transition: 0.25s ease-in-out;
@@ -113,156 +183,46 @@ ul.products li:hover a.buy-now{
     text-decoration: none;
 }
 ul.products li .product-info a.product-cat{
-    font-size: 15px;
+    font-size: 25px;
+    text-align: center;
     text-transform: uppercase;
     color: #000;
     padding: 0px 0px;
 }
 ul.products li .product-info .product-price{
     color: #111;
+    text-align: center;
+    font-size: 25px;
     padding: 2px 0px;
     font-weight: bold;
 }
-
-
-/* Phần footer */
-footer {
-    display: flex;
-    justify-content: center;
-    padding: 5px;
-    background: url(https://niemvuilaptrinh.ams3.cdn.digitaloceanspaces.com/tao_footer_cho_website/Aare.svg);
-    color: #000;
-    font-weight: bold;
+.rung {
+    color: red;
+    font-size: 45px;
 }
 
-.phone-mobile {display: none;}
-.giuseart-nav {
-    position: fixed;
-    left: 13px;
-    background: #fff;
-    border-radius: 5px;
-    width: auto;
-    z-index: 150;
-    bottom: 50px;
-    padding: 10px 0;
-    border: 1px solid #f2f2f2;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body{
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
 }
-.giuseart-nav ul {list-style: none;padding: 0;margin: 0;}
-.giuseart-nav ul li {list-style: none!important;}
-.giuseart-nav ul>li a {
-    border:none;
-    padding: 3px;
-    display: block;
-    border-radius: 5px;
+.footer{
     text-align: center;
-    font-size: 10px;
-    line-height: 15px;
-    color: #515151;
-    font-weight: 700;
-    max-width: 72.19px;
-    max-height: 54px;
-    text-decoration: none;
+    width: 100%;
 }
-.giuseart-nav ul>li .chat_animation{display:none}
-.giuseart-nav ul>li a i.ticon-heart {
-    background: url(http://fashion3.ninhbinhweb.biz/wp-content/uploads/2020/03/icon-map.png) no-repeat;
-    background-size: contain;
-    width: 36px;
-    height: 36px;
-    display: block;
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
 }
-.giuseart-nav ul>li a i.ticon-zalo-circle2 {
-    background: url(http://fashion3.ninhbinhweb.biz/wp-content/uploads/2020/03/icon-zalo-circle2.png.pagespeed.ce_.iUc59tfITH.png) no-repeat;
-    background-size: contain;
-    width: 36px;
-    height: 36px;
-    display: block;
-}.giuseart-nav li .button {
-    background: transparent;
-}.giuseart-nav ul>li a i.ticon-angle-up {
-    background: url(http://fashion3.ninhbinhweb.biz/wp-content/uploads/2020/03/icon-angle-up.png.pagespeed.ce_.NGU5VowWiC.png) no-repeat;
-    background-size: contain;
-    width: 36px;
-    height: 36px;
-    display: block;
-}.giuseart-nav ul>li a i {
-    width: 33px;
-    height: 33px;
-    display: block;
-    margin: auto;
-}.giuseart-nav ul li .button .btn_phone_txt {
-    position: relative; top:35px;
-    font-size: 10px;
-    font-weight: bold;
-    text-transform: none;
+.container{
+  max-width: 1170px;
+  margin:auto;
 }
-.giuseart-nav ul li .button .phone_animation i {
-    display: inline-block;
-    width: 27px;
-    font-size: 26px;
-    margin-top: 12px;
-}.giuseart-nav ul>li a.chat_animation svg {
-    margin: -13px 0 -20px;
+.row{
+  display: flex;
+  flex-wrap: wrap;
 }
-.giuseart-nav ul>li a i.ticon-messenger {
-    background: url(http://fashion3.ninhbinhweb.biz/wp-content/uploads/2020/03/icon-messenger.png.pagespeed.ce_.sSebhnGGgP.png) no-repeat;
-    background-size: contain;
-    width: 36px;
-    height: 36px;
-    display: block;
-}.giuseart-nav ul li .button .phone_animation i {
-    display: inline-block;
-    width: 27px;
-    font-size: 26px;
-    margin-top: 12px;
+ul{
+  list-style: none;
 }
-.giuseart-nav ul>li a i.ticon-chat-sms {
-    background: url(http://fashion3.ninhbinhweb.biz/wp-content/uploads/2020/03/icon-sms-1.jpg) no-repeat;
-    background-size: contain;
-    width: 38px;
-    height: 36px;
-    display: block;
-}
-.giuseart-nav ul>li a i.icon-phone-w {
-    background: url(http://fashion3.ninhbinhweb.biz/wp-content/uploads/2020/03/icon-phone-w.png) no-repeat;
-    background-size: contain;}
-.giuseart-nav ul li .button .btn_phone_txt {
-    position: relative;
-}
-@media only screen and (max-width: 600px){
-.giuseart-nav li .chat_animation{display:block !Important}
- 
-.giuseart-nav li .button .phone_animation {box-shadow: none;
-    position: absolute;
-    top: -16px;
-    left: 50%;
-    transform: translate(-50%,0);
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    background: #6cb917;
-    line-height: 15px;
-    border: 2px solid white;
-}
-.giuseart-nav ul>li a{padding:0; margin:0 auto}
-.giuseart-nav {
-    background: white;
-    width: 100%; border-radius:0;
-    color: #fff;
-    height: 60px;
-    line-height: 50px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 999;
-    padding: 5px;
-    margin: 0;
-    box-shadow: 0 4px 10px 0 #000;
-}
-.giuseart-nav li {
-    float: left;
-    width: 20%;
-    list-style: none;
-    height: 50px;
-}
-.phone-mobile{display:block !important}}
